@@ -1,0 +1,42 @@
+console.log('Responda com "sim" ou "não":')
+
+let question_1 = prompt('Telefonou para vítima?');
+let question_2 = prompt('Esteve no local do crime?');
+let question_3 = prompt('Mora perto da vítima?');
+let question_4 = prompt('Devia para a vítima?');
+let question_5 = prompt('Já trabalhou com a vítima?');
+
+let add1 = 0
+let add2 = 0
+let add3 = 0 
+let add4 = 0 
+let add5 = 0
+
+if (question_1 === 'sim'){
+    add1++
+}
+if (question_2 == 'sim'){
+    add2++
+}
+if (question_3 == 'sim'){
+    add3++
+}
+if ( question_4 == 'sim'){
+    add4++
+}
+if ( question_5 == 'sim'){
+    add5++
+}
+
+let soma_respostas = (add1 + add2 + add3 + add4 + add5);
+
+if (soma_respostas == 2) {
+    console.log('Suspeito!');
+} else if (soma_respostas == 3 || soma_respostas == 4) {
+    console.log('Cumplice!');
+} else if (soma_respostas == 5) {
+    console.log('Assassino!');
+} else {
+    console.log('Inocente!')
+    console.log('Soma das resposta: ' + soma_respostas)
+}
