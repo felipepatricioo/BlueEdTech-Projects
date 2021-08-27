@@ -15,6 +15,7 @@ if (choice == 1){
          console.log('Draw!');
      } else {
          console.log('You lost!');
+         pointspc++
   }
 }
 if (choice == 2){
@@ -25,6 +26,7 @@ if (choice == 2){
           console.log('Draw!');
      } else {
           console.log('You lost!');
+          pointspc++
      }
 }
 if (choice == 3){
@@ -35,6 +37,7 @@ if (choice == 3){
           console.log('Draw!');
       } else {
           console.log('You lost!');
+          pointspc++
       }
 }
 }
