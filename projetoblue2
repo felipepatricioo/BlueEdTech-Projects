@@ -1,0 +1,50 @@
+console.log('ジャンケンポン(Rock, Paper, Scissors):');
+let points = 0
+
+
+function jajanken(){
+let rounds = +prompt('How many rounds will you play?');
+let randomvalue = Math.floor(Math.random() * 3);
+for (let i = 0; i < rounds; i++){
+let choice = +prompt('What is your choice(rock = 1, paper = 2, scissors = 3)?');
+if (choice == 1){
+    if (randomvalue < 1) {
+         console.log('You won!');
+         points++;
+     } else if (randomvalue == 1) {
+         console.log('Draw!');
+     } else {
+         console.log('You lost!');
+  }
+}
+if (choice == 2){
+     if (randomvalue < 2) {
+          console.log('You won!');
+          points++;
+     } else if (randomvalue == 2) {
+          console.log('Draw!');
+     } else {
+          console.log('You lost!');
+     }
+}
+if (choice == 3){
+     if (randomvalue < 3) {
+         console.log('You won!');
+         points++;
+      } else if (randomvalue == 3) {
+          console.log('Draw!');
+      } else {
+          console.log('You lost!');
+      }
+}
+}
+let play = prompt('Do you wanna play again?(Y/N)');
+if (play == 'Y'){
+    console.log(jajanken());
+} else {
+    console.log(`You played ${rounds} rounds, and your score was:${points}!!`);
+    console.log('Obrigado por jogar!!');
+}
+}
+
+console.log(jajanken())
