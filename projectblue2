@@ -1,6 +1,6 @@
 console.log('ジャンケンポン(Rock, Paper, Scissors):');
 let points = 0
-
+let pointspc = 0
 
 function jajanken(){
 let rounds = +prompt('How many rounds will you play?');
@@ -41,9 +41,16 @@ if (choice == 3){
 let play = prompt('Do you wanna play again?(Y/N)');
 if (play == 'Y'){
     console.log(jajanken());
-} else {
-    console.log(`You played ${rounds} rounds, and your score was:${points}!!`);
-    console.log('Obrigado por jogar!!');
+} else if (pointspc > points) {
+    console.log(`The computer won with ${pointspc} points, you did ${points} points, better luck next time!`)
+    console.log('Thank you for playing!')
+}else if (pointspc < points){
+    console.log(`You won with ${points} points, the computer did ${pointspc} points, Congratulations!`)
+    console.log('Thank you for playing!')
+}else if (points = pointspc){
+    console.log('It is a Draw!')
+    console.log('Thank you for playing!')
+
 }
 }
 
