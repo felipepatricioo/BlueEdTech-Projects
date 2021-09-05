@@ -1,0 +1,38 @@
+const prompt = require("prompt-sync")();
+console.log("DICE GAME:");
+listDice = [];
+
+while (true) {
+  let rounds = +prompt("How many rounds do you want to play?");
+  console.log(`You chose to play ${rounds} rounds!`);
+  let players = +prompt("How many people are playing?");
+  wins = 0;
+  for (let x = 0; x < players; x++) {
+    playerInfo = {
+      name: prompt("What is your name?"),
+      dice: Math.floor(Math.random() * (6 - 1 + 1))+ 1,
+      wins: wins,
+    };
+    listDice.push(playerInfo);
+  }
+  for (let i = 1; i < rounds + 1; i++) {
+    listDice.sort((a, b) => a.dice - b.dice).reverse();
+    console.log(`${listDice[0].name} won the round ${i} with ${listDice[0].dice} points on the dice!`);
+    listDice[0].wins++
+    for (x = 0; x < players; x++) {
+        listDice[x].dice = Math.floor(Math.random() * (6 - 1 + 1))+ 1
+    }
+  }
+  listDice.sort((a, b) => a.wins - b.wins).reverse();
+  console.log(`The champion was: ${listDice[0].name} with ${listDice[0].wins} points in total!`)
+
+
+
+  var loop = String(prompt("Do you wanna play again? [Y/N]")).toUpperCase();
+  if (loop == "Y") {
+    continue;
+  } else {
+    console.log("Thanks for playing!!!");
+    break;
+  }
+}
