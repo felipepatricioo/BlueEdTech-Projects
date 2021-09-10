@@ -1,0 +1,90 @@
+const prompt = require("prompt-sync")();
+
+console.log("ELECTION: ");
+console.log(" 1 = Akira");
+console.log(" 2 = Josuke");
+console.log(" 3 = Onodera");
+console.log(" 4 = None of the above");
+console.log(" 5 = Blank Vote");
+
+votes1 = 0;
+votes2 = 0;
+votes3 = 0;
+NoTA = 0;
+votesBlank = 0;
+
+function voteChecker(birthYear) {
+  age = 2021 - birthYear;
+  if (age < 16) {
+    return "Denied";
+  }
+  if (age >= 16 && age < 18) {
+    return "Optional";
+  }
+  if (age >= 18) {
+    return "Obligatory";
+  }
+}
+
+function votes(check, vote) {
+  if (check == "Denied") {
+    console.log("You cannot vote!");
+  }
+  if (check == "Obligatory" || check == "Optional") {
+    if (vote == 1) {
+      return votes1++;
+    } else if (vote == 2) {
+      return votes2++;
+    } else if (vote == 3) {
+      return votes3++;
+    } else if (vote == 4) {
+      return NoTA++;
+    } else if (vote == 5) {
+      return votesBlank++;
+    } else {
+      console.log("Not a valid number, choose a valid candidate [1-5]");
+    }
+  }
+}
+
+function showResults() {
+  console.log(`Candidate 1 got ${votes1} votes`);
+  console.log(`Candidate 2 got ${votes2} votes`);
+  console.log(`Candidate 3 got ${votes3} votes`);
+  console.log(`None of the above votes: ${NoTA}`);
+  console.log(`Blank Votes: ${votesBlank}`);
+  if (votes1 > votes2) {
+    if (votes1 > votes3) {
+      console.log(`Akira is the winner!`);
+    }
+  }
+  if (votes2 > votes1) {
+    if (votes2 > votes3) {
+      console.log(`Josuke is the winner!`);
+    }
+  }
+  if (votes3 > votes1) {
+    if (votes3 > votes2) {
+      console.log(`Onodera is the winner!`);
+    }
+  }
+}
+
+while (true) {
+  let nameVoter = prompt("What's your name?");
+  let check = voteChecker(+prompt("What is your year of birth?"));
+  let vote = +prompt("What is your vote?");
+  votes(check, vote);
+  console.log(`${nameVoter} voted on the candidate number ${vote}`);
+  let loop = String(
+    prompt("You wanna register another vote? [Y-N]")
+  ).toUpperCase();
+  if (loop == "Y") {
+    continue;
+  } else {
+    break;
+  }
+}
+console.log(' ')
+console.log('RESULTS:', '\n')
+console.log(showResults());
