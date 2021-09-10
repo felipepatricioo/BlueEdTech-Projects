@@ -31,7 +31,7 @@ function votes(check, vote) {
     console.log("You cannot vote!");
   }
   if (check == "Obligatory" || check == "Optional") {
-    if (vote == 1) {
+    if (vote == 1) { 
       return votes1++;
     } else if (vote == 2) {
       return votes2++;
