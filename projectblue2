@@ -57,4 +57,4 @@ if (play == 'Y'){
 }
 }
 
-console.log(jajanken()) 
+console.log(jajanken())  
