@@ -29,7 +29,7 @@ if (choice == 2){
           pointspc++
      }
 }
-if (choice == 3){
+if (choice == 3){ 
      if (randomvalue < 3) {
          console.log('You won!');
          points++;
